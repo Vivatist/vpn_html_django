@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve vpn_html
+After=network.target
+
+[Service]
+User=sammy
+Group=www-data
+WorkingDirectory=/home/sammy/vpn_html
+Environment="PATH=/home/sammy/vpn_html/vpn_html_env/bin"
+ExecStart=/home/sammy/vpn_html/vpn_html_env/bin/uwsgi --ini vpn_html.ini
+
+[Install]
+WantedBy=multi-user.target
