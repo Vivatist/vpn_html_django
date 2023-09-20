@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "qwtel.sqlite-viewer"
+        "qwtel.sqlite-viewer",
+        "junstyle.vscode-django-support"
     ]
 }
