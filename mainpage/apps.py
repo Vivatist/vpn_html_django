@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class VpnConfig(AppConfig):
+class MainpageConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'vpn'
+    name = 'mainpage'
