@@ -60,7 +60,7 @@
           </div>
         {% else %}
           <div class="alert alert-warning mt-1 mb-0 mx-3" px-4 py-5 role="alert">
-            В настоящий момент вы не подключены к sssvpn. Воспользуйтесь инструкцией ниже и <a href="{{ settings.url }}" class="alert-link">перезагрузите страницу</a> для повторной проверки.
+            В настоящий момент вы не подключены к sssvpn. Воспользуйтесь инструкцией ниже и <a href="{{ url }}" class="alert-link">перезагрузите страницу</a> для повторной проверки.
           </div>
         {% endif %}
       </section>
@@ -68,14 +68,14 @@
       <section id="download">
         <div class="px-4 pt-4 text-center">
           <p>
-            <a href="{{ settings.url }}"><img src={% static "mainpage/images/logo.png" %} alt="logo" loading="lazy" /></a>
+            <a href="{{ url }}"><img src={% static "mainpage/images/logo.png" %} alt="logo" loading="lazy" /></a>
           </p>
           <div class="col-lg-6 mx-auto pt-4">
             <p class="lead mb-4">Анонимный VPN без ограничения скорости и объема трафика. Основан на технологии Shadowsocks. Физически сервер находится в Германии. Поддерживаются платформы Windows, Android и iOs. Для начала - скачайте клиент для своего устройства.</p>
             <div class="d-grid p-4 gap-2 d-sm-flex justify-content-sm-center">
-              <a class="btn btn-outline-secondary btn-lg px-4" href="{{ links.get(pk=1) }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_windows.png" %} width="30" height="30" />Windows</a>
-              <a class="btn btn-outline-secondary btn-lg px-4" href="{{ links.android_client }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_android.png" %} width="30" height="30" />Android</a>
-              <a class="btn btn-outline-secondary btn-lg px-4" href="{{ links.ios_client }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_apple.png" %} width="30" height="30" />Apple</a>
+              <a class="btn btn-outline-secondary btn-lg px-4" href="{{ windows_client }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_windows.png" %} width="30" height="30" />Windows</a>
+              <a class="btn btn-outline-secondary btn-lg px-4" href="{{ android_client }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_android.png" %} width="30" height="30" />Android</a>
+              <a class="btn btn-outline-secondary btn-lg px-4" href="{{ ios_client }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_apple.png" %} width="30" height="30" />Apple</a>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
           <h2 class="display-6 text-center mb-4">Настройки</h2>
           <div class="col-lg-6 mx-auto lead mb-4">
             <p>
-              Установите клиент для своей операционной системы и добавьте в настройках новый сервер, используя данные из таблицы ниже, либо с помощью <b>QR-кода</b>. Если не получается - обратитесь в наш <a href="{{ settings.url_support }}" class="link-underline-light">Telegram-канал</a>.
+              Установите клиент для своей операционной системы и добавьте в настройках новый сервер, используя данные из таблицы ниже, либо с помощью <b>QR-кода</b>. Если не получается - обратитесь в наш <a href="{{ url_support }}" class="link-underline-light">Telegram-канал</a>.
             </p>
           </div>
           <div class="col-lg-6 mx-auto mb-4">
@@ -100,21 +100,21 @@
               <tbody>
                 <tr>
                   <td>Сервер или host (IP)</td>
-                  <td>{{ settings.host }}</td>
+                  <td>{{ host }}</td>
                 </tr>
                 <tr>
                   <td>Порт</td>
-                  <td>{{ settings.port }}</td>
+                  <td>{{ port }}</td>
                 </tr>
                 <tr>
                   <td>Пароль</td>
-                  <td>{{ settings.password }}</td>
+                  <td>{{ password }}</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <td>Метод шифрования</td>
-                  <td>{{ settings.encription }}</td>
+                  <td>{{ encription }}</td>
                 </tr>
               </tfoot>
             </table>
@@ -123,7 +123,7 @@
             <a href={% static "mainpage/images/qr.png" %} data-lightbox="image-1"><img src={% static "mainpage/images/qr.png" %} class="rounded mx-auto d-block img-thumbnail" alt="QR" data-lightbox="image-1" width="200" height="200" loading="lazy" /></a>
           </div>
           <div class="col-lg-6 p-4 mx-auto">
-            <small class="text-muted text-break">{{ settings.ss_link }}</small>
+            <small class="text-muted text-break">{{ ss_link }}</small>
           </div>
         </div>
       </section>
@@ -184,7 +184,7 @@
       <section id="support">
         <div class="px-4 py-5 text-center">
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a class="btn btn-outline-secondary btn-lg px-4" href="{{ settings.url_support }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_telegram.png" %} width="30" height="30" />Техподдержка</a>
+            <a class="btn btn-outline-secondary btn-lg px-4" href="{{ url_support }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_telegram.png" %} width="30" height="30" />Техподдержка</a>
           </div>
         </div>
         <!-- Разделитель -->
