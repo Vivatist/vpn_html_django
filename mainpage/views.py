@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from mainpage.links import Links
+from .models import *
 
 
 def get_client_ip(req):
@@ -22,6 +23,7 @@ def index(request):
         password = "238938"
         encription = "AES-256-GCM"
         ss_link = "ss://YWVzLTI1Ni1nY206MjM4OTM4@5.104.108.237:14983/#sssvpn.ru"
+        links = Links.objects
 
     ip_addr = get_client_ip(request)
     check = ip_addr == Settings.host
