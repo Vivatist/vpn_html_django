@@ -56,7 +56,7 @@
       <section id="notification">
         {% if check %}
           <div class="alert alert-success mt-1 mb-0 mx-3" role="alert">
-            Ваш текущий IP: {{ ip_addr }}, VPN успешно подключен. Вы можете пользоваться <a href="#blocked_site" class="alert-link">заблокированными ресурсами</a>.
+            Ваш текущий IP: {{ ip_addr }}, VPN успешно подключен. Вы можете пользоваться <a href="#blocked" class="alert-link">заблокированными ресурсами</a>.
           </div>
         {% else %}
           <div class="alert alert-warning mt-1 mb-0 mx-3" px-4 py-5 role="alert">
@@ -128,7 +128,23 @@
         </div>
       </section>
 
-      <section id="blocked_site">
+      <section id="blocked">
+
+        
+        {% block content %}
+          <ul>
+            {% for bs in blocked_sites %}
+            <li>
+              <a href="{{ bs.url }}"> <h5><img src={{ bs.favicon.url }} />{{bs.name}}</h5></a>
+              <p>{{bs.description}}</p>
+              <hr>
+            </li>
+            {% endfor %}
+          </ul>
+        {% endblock %}
+
+
+
         <div class="bg-dark text-secondary px-4 py-5 text-center">
           <div class="py-2">
             <h2 class="display-6 text-center mb-1 text-white">Заблокированные ресурсы</h2>

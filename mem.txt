@@ -1,3 +1,12 @@
+ЗАПУСК DJANGO
+
+
 МИГРАЦИЯ
 python manage.py makemigrations
 python manage.py migrate
+
+ВИРТУАЛЬНОЕ ОКРУЖЕНИЕ
+source venv/Scripts/activate
+
+СОХРАНИТЬ СПИСОК БИБЛИОТЕК
+pip freeze > requirements.txt

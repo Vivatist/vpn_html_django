@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Links(models.Model):
-    """Содержит внешние ссылки используемые на сайте"""
+    """Внешние ссылки используемые на сайте"""
 
     class Meta:
         verbose_name = "Внешние ссылки"
@@ -26,7 +26,7 @@ class Settings(models.Model):
 
     lang = models.CharField(max_length=2, verbose_name="Язык")
     url = models.URLField(verbose_name="Ссылка на сайт")
-    url_support = models.URLField(verbose_name="Ссылка на телеграм-канал техподдержки")
+    url_support = models.URLField(verbose_name="URL телеграм-канала техподдержки")
     host = models.GenericIPAddressField(verbose_name="IP хоста")
     port = models.IntegerField(verbose_name="Порт сервера")
     password = models.CharField(max_length=20, verbose_name="Парль сервера")
@@ -41,3 +41,23 @@ class Settings(models.Model):
 
     def __str__(self) -> str:
         return self.lang
+
+
+class BlockedSites(models.Model):
+    """Список заблокированных сайтов"""
+
+    class Meta:
+        verbose_name = "Заблокированные сайты"
+        verbose_name_plural = "Заблокированные сайты"
+        ordering = ["name"]
+
+    name = models.CharField(max_length=50, verbose_name="Название")
+    url = models.URLField(verbose_name="URL заблокированного ресурса")
+    description = models.TextField(verbose_name="Описание")
+    favicon = models.ImageField(
+        upload_to="upload/", verbose_name="Иконка"
+    )
+    active = models.BooleanField(default=True, verbose_name="Активно")
+
+    def __str__(self) -> str:
+        return self.name

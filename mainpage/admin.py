@@ -20,3 +20,11 @@ admin.site.register(Links, LinksAdmin)  # noqa
 
 
 admin.site.register(Settings)  # noqa
+
+
+class BlockedSitesAdmin(admin.ModelAdmin):
+    list_display = ("id", "name", "url")
+    list_display_links = ("id", "url")
+
+
+admin.site.register(BlockedSites, BlockedSitesAdmin)  # noqa

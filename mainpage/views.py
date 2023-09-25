@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Links, Settings
+from .models import Settings, BlockedSites
 
 
 def get_client_ip(req):
@@ -15,6 +15,7 @@ def get_client_ip(req):
 def index(request):
     context = {
         "settings": Settings.objects.get(lang="ru"),
+        "blocked_sites": BlockedSites.objects.all(),
     }
 
     ip_addr = get_client_ip(request)
