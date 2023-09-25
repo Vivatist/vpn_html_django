@@ -14,8 +14,16 @@ admin.site.register(Settings)  # noqa
 
 
 class BlockedSitesAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "url")
+    list_display = ("id", "name", "active", "url")
     list_display_links = ("id", "name")
 
 
 admin.site.register(BlockedSites, BlockedSitesAdmin)  # noqa
+
+
+class ClientsAdmin(admin.ModelAdmin):
+    list_display = ("id", "name", "active", "url")
+    list_display_links = ("id", "name")
+
+
+admin.site.register(Clients, ClientsAdmin)  # noqa

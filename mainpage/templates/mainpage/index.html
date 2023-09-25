@@ -4,55 +4,77 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>SSSVPN - свободный VPN для друзей и знакомых Кролика</title>
+    <title>SSSVPN - свободный VPN</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
     
-    
     {% load static %}
 
-
-    <!-- Favicons -->
+    <!-- Favicons -->  
     <link rel="apple-touch-icon" href={% static "mainpage/images/favicons/favicon-180x180.png" %} sizes="180x180" />
-    <link rel="icon" href={% static "mainpage/images/favicons/favicon-32x32.png" %} sizes="32x32" type="image/png"  />
+    <link rel="icon" href={% static "mainpage/images/favicons/favicon-32x32.png" %} sizes="32x32" type="image/png" />
     <link rel="icon" href={% static "mainpage/images/favicons/favicon-16x16.png" %} sizes="16x16" type="image/png" />
     <meta name="theme-color" content="#7952b3" />
 
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-      
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Shadows Into Light" />
-    <style>
-      h1 {
-        font-family: 'Shadows Into Light', serif;
-        font-size: 96px;
-      }
-    </style>
-
-    <link href={% static "mainpage/css/app.css" %} rel="stylesheet" />
-    <link href={% static "mainpage/lightbox/css/lightbox.css" %} rel="stylesheet" />
   </head>
+  <body>
+    
+    <div class="col-lg-8 mx-auto p-3 py-md-5">
+      <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+          <a href="{{ settings.url }}"><img src={% static "mainpage/images/logo48x48.png" %} alt="logo" loading="lazy" /></a><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
+          <span class="fs-4">Starter template</span>
+        </a>
+      </header>
+    
+      <main>
+        <h1>Get started with Bootstrap</h1>
+        <p class="fs-5 col-md-8">Quickly and easily get started with Bootstrap's compiled, production-ready files with this barebones example featuring some basic HTML and helpful links. Download all our examples to get started.</p>
+    
+        <div class="mb-5">
+          <a href="/docs/5.0/examples/" class="btn btn-primary btn-lg px-4">Download examples</a>
+        </div>
+    
+        <hr class="col-3 col-md-2 mb-5">
+    
+        <div class="row g-5">
+          <div class="col-md-6">
+            <h2>Starter projects</h2>
+            <p>Ready to beyond the starter template? Check out these open source projects that you can quickly duplicate to a new GitHub repository.</p>
+            <ul class="icon-list">
+              <li><a href="https://github.com/twbs/bootstrap-npm-starter" rel="noopener" target="_blank">Bootstrap npm starter</a></li>
+              <li class="text-muted">Bootstrap Parcel starter (coming soon!)</li>
+            </ul>
+          </div>
+    
+          <div class="col-md-6">
+            <h2>Guides</h2>
+            <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.</p>
+            <ul class="icon-list">
+              <li><a href="/docs/5.0/getting-started/introduction/">Bootstrap quick start guide</a></li>
+              <li><a href="/docs/5.0/getting-started/webpack/">Bootstrap Webpack guide</a></li>
+              <li><a href="/docs/5.0/getting-started/parcel/">Bootstrap Parcel guide</a></li>
+              <li><a href="/docs/5.0/getting-started/build-tools/">Contributing to Bootstrap</a></li>
+            </ul>
+          </div>
+        </div>
+      </main>
+      <footer class="pt-5 my-5 text-muted border-top">
+        Created by the Bootstrap team · © 2021
+      </footer>
+    </div>
+    
+    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    
+      
+    </body>
+
 
   <body>
     <main>
+
       <section id="notification">
         {% if check %}
           <div class="alert alert-success mt-1 mb-0 mx-3" role="alert">
@@ -64,143 +86,66 @@
           </div>
         {% endif %}
       </section>
-
-      <section id="download">
-        <div class="px-4 pt-4 text-center">
-          <p>
-            <a href="{{ settings.url }}"><img src={% static "mainpage/images/logo.png" %} alt="logo" loading="lazy" /></a>
-          </p>
-          <div class="col-lg-6 mx-auto pt-4">
-            <p class="lead mb-4">Анонимный VPN без ограничения скорости и объема трафика. Основан на технологии Shadowsocks. Физически сервер находится в Германии. Поддерживаются платформы Windows, Android и iOs. Для начала - скачайте клиент для своего устройства.</p>
-            <div class="d-grid p-4 gap-2 d-sm-flex justify-content-sm-center">
-              <a class="btn btn-outline-secondary btn-lg px-4" href="{{ settings.windows_client }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_windows.png" %} width="30" height="30" />Windows</a>
-              <a class="btn btn-outline-secondary btn-lg px-4" href="{{ settings.android_client }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_android.png" %} width="30" height="30" />Android</a>
-              <a class="btn btn-outline-secondary btn-lg px-4" href="{{ settings.ios_client }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_apple.png" %} width="30" height="30" />Apple</a>
-            </div>
-          </div>
-        </div>
+      
+      <section id="logo">
+        <a href="{{ settings.url }}"><img src={% static "mainpage/images/logo48x48.png" %} alt="logo" loading="lazy" /></a>
       </section>
 
-      <section id="instruction">
-        <div class="px-4 py-5 text-center">
-          <h2 class="display-6 text-center mb-4">Настройки</h2>
-          <div class="col-lg-6 mx-auto lead mb-4">
-            <p>
-              Установите клиент для своей операционной системы и добавьте в настройках новый сервер, используя данные из таблицы ниже, либо с помощью <b>QR-кода</b>. Если не получается - обратитесь в наш <a href="{{ settings.url_support }}" class="link-underline-light">Telegram-канал</a>.
-            </p>
-          </div>
-          <div class="col-lg-6 mx-auto mb-4">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Параметр</th>
-                  <th>Значение</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Сервер или host (IP)</td>
-                  <td>{{ settings.host }}</td>
-                </tr>
-                <tr>
-                  <td>Порт</td>
-                  <td>{{ settings.port }}</td>
-                </tr>
-                <tr>
-                  <td>Пароль</td>
-                  <td>{{ settings.password }}</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td>Метод шифрования</td>
-                  <td>{{ settings.encription }}</td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-          <div class="col-lg-6 pt-4 mx-auto">
-            <a href={% static "mainpage/images/qr.png" %} data-lightbox="image-1"><img src={% static "mainpage/images/qr.png" %} class="rounded mx-auto d-block img-thumbnail" alt="QR" data-lightbox="image-1" width="200" height="200" loading="lazy" /></a>
-          </div>
-          <div class="col-lg-6 p-4 mx-auto">
-            <small class="text-muted text-break">{{ settings.key }}</small>
-          </div>
-        </div>
-      </section>
 
-      <section id="blocked">
 
+
+      <section id="main">
+        <p>Чтобы безопасно подключаться к интернету, используйте этот ShadowSocks Server - анонимный VPN без ограничения скорости и объема трафика. Он основан на технологиях Shadowsocks и Outline VPN и физически находится в Германии. Чтобы начать использовать - выполните следующие шаги:</p>.
+
+        <p>1. Скачайте и установите на устройство приложение Outline:</p>
+        <p>
+        {% for cl in clients %}
+          {% if cl.active %}
+            <a class="btn btn-outline-secondary btn-lg" href="{{ cl.url }}"><img style="padding: 3px;" src= {{ cl.logo.url }} width=32 height=32/> {{ cl.name }} </a>
+          {% endif %}
+        {% endfor %}
+        </p>
+        <p>2. Найдите ниже ключ доступа, который начинается с ss://, а затем скопируйте его.</p>
+        <p>3. Откройте приложение Outline. Если ваш ключ доступа определился автоматически, нажмите "Подключиться". Если этого не произошло, вставьте ключ в поле и нажмите "Подключиться".</p> 
         
-        {% block content %}
+        <p>Теперь у вас есть доступ к свободному интернету. Чтобы убедиться, что вы подключились к серверу, попробуйте открыть сайты из списка заблокированных.</p>
+        
+        <p>Дополнительную помощь можно получить в нашем телеграм-канале {{ settings.url_support }}.</p>
+      </section>
+      
+
+      <section id="key">
+        <p class="h5">Ключ доступа: <span class="badge bg-warning text-dark">{{ settings.key  }}</span></p>
+      </section>
+      
+      <section id="block">
+        <h3>Заблокированные ресурсы</h3>
+        <p>используйте для проверки работы VPN</p>
           <ul>
             {% for bs in blocked_sites %}
-            <li>
-              <a href="{{ bs.url }}"> <h5><img src={{ bs.favicon.url }} />{{bs.name}}</h5></a>
-              <p>{{bs.description}}</p>
-              <hr>
-            </li>
+              {% if bs.active %}
+              <li>
+                <a href="{{ bs.url }}"> <p><img src={{ bs.favicon.url }} />{{bs.name}}</p></a>
+                <p>{{bs.description}}</p>
+              </li>
+              {% endif %}
             {% endfor %}
           </ul>
-        {% endblock %}
+      </section>
 
 
-
-        <div class="bg-dark text-secondary px-4 py-5 text-center">
-          <div class="py-2">
-            <h2 class="display-6 text-center mb-1 text-white">Заблокированные ресурсы</h2>
-            <div class="col-lg-6 mx-auto">
-              <p class="lead mb-4">проверьте работу своего VPN</p>
-              <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
-                <div class="lead list-group">
-                  <a href="https://rutracker.org/forum/index.php" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                    <div class="d-flex gap-2 w-100 justify-content-between">
-                      <div>
-                        <h5 class="mb-2"><img src={% static "mainpage/images/logo_rutracker.png" %} /> RuTracker.org (ранее — Torrents.ru)</h5>
-                        <p class="mb-0 opacity-75">Крупнейший русскоязычный BitTorrent-трекер. На конец 2023 года более 14 миллионов пользователей, более 2,242 миллиона «живых» раздач, суммарный размер раздач трекера составляет более 5,222 петабайт.</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="http://rutor.info/" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                    <div class="d-flex gap-2 w-100 justify-content-between">
-                      <div>
-                        <h5 class="mb-2"><img src={% static "mainpage/images/logo_rutor.png" %} /> Rutor</h5>
-                        <p class="mb-0 opacity-75">Один из самых популярных российских ресурсов, по обмену торрент-файлами. Фильмы, сериалы, музыка, программы, игры и т.п. Активное сообщество. Ежедневно появляются сотни новых раздач. Без регистрации.</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="https://flibusta.is/" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                    <div class="d-flex gap-2 w-100 justify-content-between">
-                      <div>
-                        <h5 class="mb-2"><img src={% static "mainpage/images/logo_flibusta.png" %} /> Флибуста</h5>
-                        <p class="mb-0 opacity-75">Бесплатная некоммерческая библиотека. Удобный подбор книг по интересам, жанрам, поджанрам и т.п. На 2021 год 476 165 томов, 172 976 авторов, 1037 гигабайт</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="https://www.instagram.com/" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                    <div class="d-flex gap-2 w-100 justify-content-between">
-                      <div>
-                        <h5 class="mb-2"><img src={% static "mainpage/images/logo_instagram.png" %} /> Instagram</h5>
-                        <p class="lead vmb-0 opacity-75">Одна из крупнейших соцсетей. Была заблокирвана практически сразу после начала СВО на Украине.</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <p class="lead fs-5 py-4 mb-4">
-                &#171;... В первом полугодии по требованию Роскомнадзора в России <b>заблокировано или удалено более 885 тысяч сайтов</b> с запрещенной законодательством информацией, что на 85% больше, чем за аналогичный период 2022 года, рассказали “Коммерсант” в ведомстве. Также выросло количество заблокированных или удаленных отдельных материалов в сети — до 1,1 млн, что на 10% больше, чем за весь 2022 год ...&#187;
-                <a href="https://www.kommersant.ru/doc/6199119" class="opacity-50 text-nowrap link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Источник -></a>
-              </p>
-              <p class="fs-5 mb-4">В каких ещё странах блокируют VPN: Китай, Беларусь, Северная Корея, Туркменистан, Уганда, Ирак, Турция, ОАЭ и Оман.</p>
-            </div>
-          </div>
-        </div>
+      <section id="article">
+        <p>
+          &#171;... В первом полугодии по требованию Роскомнадзора в России <b>заблокировано или удалено более 885 тысяч сайтов</b> с запрещенной законодательством информацией, что на 85% больше, чем за аналогичный период 2022 года, рассказали “Коммерсант” в ведомстве. Также выросло количество заблокированных или удаленных отдельных материалов в сети — до 1,1 млн, что на 10% больше, чем за весь 2022 год ...&#187;
+          <a href="https://www.kommersant.ru/doc/6199119" >Источник -></a>
+        </p>
+        <p>В каких ещё странах блокируют VPN: Китай, Беларусь, Северная Корея, Туркменистан, Уганда, Ирак, Турция, ОАЭ и Оман.</p>
       </section>
 
       <section id="support">
-        <div class="px-4 py-5 text-center">
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a class="btn btn-outline-secondary btn-lg px-4" href="{{ settings.url_support }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_telegram.png" %} width="30" height="30" />Техподдержка</a>
+        <div>
+          <div>
+            <a class="btn btn-outline-secondary btn-lg" href="{{ settings.url_support }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_telegram.png" %} width="30" height="30" />Техподдержка</a>
           </div>
         </div>
         <!-- Разделитель -->
@@ -213,8 +158,6 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
       <!-- jQuery -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-      <!-- Скрипт для отображения картинок -->
-      <script src={% static "mainpage/lightbox/js/lightbox.js" %}></script>
     </section>
   </body>
 </html>
