@@ -1,21 +1,6 @@
 from django.db import models
 
 
-class Links(models.Model):
-    """Внешние ссылки используемые на сайте"""
-
-    class Meta:
-        verbose_name = "Внешние ссылки"
-        verbose_name_plural = "Внешние ссылки"
-        ordering = ["name"]
-
-    name = models.CharField(max_length=50, db_index=True, verbose_name="Название")
-    url = models.CharField(max_length=200, verbose_name="URL")
-
-    def __str__(self) -> str:
-        return self.name
-
-
 class Settings(models.Model):
     """Глобальные настройка приложения"""
 
@@ -54,9 +39,7 @@ class BlockedSites(models.Model):
     name = models.CharField(max_length=50, verbose_name="Название")
     url = models.URLField(verbose_name="URL заблокированного ресурса")
     description = models.TextField(verbose_name="Описание")
-    favicon = models.ImageField(
-        upload_to="upload/", verbose_name="Иконка"
-    )
+    favicon = models.ImageField(upload_to="upload/", verbose_name="Иконка 16x16")
     active = models.BooleanField(default=True, verbose_name="Активно")
 
     def __str__(self) -> str:
