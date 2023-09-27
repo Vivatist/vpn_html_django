@@ -30,42 +30,60 @@
     
       <main>
         <h1>Анонимный VPN без ограничений</h1>
-        <p class="fs-5 col-md-8">Основан на технологиях Shadowsocks и Outline VPN и физически находится в Германии. Чтобы начать использовать - скопируйте ключ доступа:</p>
-        <p class="h4"> <span class="text-break  bg-warning text-dark">{{ settings.key  }}</span></p>
-        <div class="input-group mb-3">
+        <p class="fs-5 col-md-8 py-3">Основан на технологиях Shadowsocks и Outline VPN, физически находится в Германии. Чтобы начать использовать - скопируйте ключ доступа:</p>
+        
+        <div class="input-group mb-5">
           <span class="input-group-text" id="basic-addon1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&#128273;</font></font></span>
-          <input type="text" class="form-control" placeholder="Имя пользователя" aria-label="Имя пользователя" aria-describedby="basic-addon1">
+          <input type="text" class="form-control form-control-lg" value="{{ settings.key  }}"  aria-describedby="basic-addon1">
+          <span class="input-group-text"><font style="vertical-align: inherit;"><a  href="#"><font style="vertical-align: inherit;">скопировать</font></a></font></span>
         </div>
-        <div class="mb-5">
-          <a href="/docs/5.0/examples/" class="btn btn-primary btn-lg px-4">Download examples</a>
-        </div>
-    
+
         <hr class="col-3 col-md-2 mb-5">
     
         <div class="row g-5">
           <div class="col-md-6">
-            <h2>Starter projects</h2>
-            <p>Ready to beyond the starter template? Check out these open source projects that you can quickly duplicate to a new GitHub repository.</p>
+            <h2>Инструкция</h2>
+            <p>1. Скачайте и установите на устройство приложение Outline:</p>
             <ul class="icon-list">
-              <li><a href="https://github.com/twbs/bootstrap-npm-starter" rel="noopener" target="_blank">Bootstrap npm starter</a></li>
-              <li class="text-muted">Bootstrap Parcel starter (coming soon!)</li>
+              {% for cl in clients %}
+              {% if cl.active %}
+                <li><img style="padding: 3px;" src= {{ cl.logo.url }} width=16 height=16/><a href="{{ cl.url }}">{{ cl.name }} </a></li>
+               {% endif %}
+            {% endfor %}
             </ul>
+            <p>2. Найдите выше ключ доступа, который начинается с ss://, а затем скопируйте его.</p>
+            <p>3. Откройте приложение Outline. Если ваш ключ доступа определился автоматически, нажмите "Подключиться". Если этого не произошло, вставьте ключ в поле и нажмите "Подключиться".</p>
+            <p>4. В случае проблем пишите в Телеграм.</p>
+            <div>
+              <a class="btn btn-outline-secondary btn-lg" href="{{ settings.url_support }}"><img style="padding: 3px;" src={% static "mainpage/images/logo_telegram.png" %} width="30" height="30" />Техподдержка</a>
+            </div>
+
           </div>
     
           <div class="col-md-6">
-            <h2>Guides</h2>
-            <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.</p>
-            <ul class="icon-list">
-              <li><a href="/docs/5.0/getting-started/introduction/">Bootstrap quick start guide</a></li>
-              <li><a href="/docs/5.0/getting-started/webpack/">Bootstrap Webpack guide</a></li>
-              <li><a href="/docs/5.0/getting-started/parcel/">Bootstrap Parcel guide</a></li>
-              <li><a href="/docs/5.0/getting-started/build-tools/">Contributing to Bootstrap</a></li>
+            <h2>Проверка</h2>
+            <p>Попробуйте открыть заблокированные роскомнадзором ресурсы:</p>
+            <ul class="list-group list-group-numbered">
+              {% for bs in blocked_sites %}
+                {% if bs.active %}
+                <li>
+                  <p><a href="{{ bs.url }}"> <img src={{ bs.favicon.url }} />{{bs.name}}</a>
+                  {{bs.description}}</p>
+                </li>
+                {% endif %}
+              {% endfor %}
             </ul>
-          </div>
+                     </div>
         </div>
       </main>
       <footer class="pt-5 my-5 text-muted border-top">
-        Created by the Bootstrap team · © 2021
+        <section id="article">
+          <p>
+            &#171;... В первом полугодии по требованию Роскомнадзора в России <b>заблокировано или удалено более 885 тысяч сайтов</b> с запрещенной законодательством информацией, что на 85% больше, чем за аналогичный период 2022 года, рассказали “Коммерсант” в ведомстве. Также выросло количество заблокированных или удаленных отдельных материалов в сети — до 1,1 млн, что на 10% больше, чем за весь 2022 год ...&#187;
+            <a href="https://www.kommersant.ru/doc/6199119" >Источник -></a>
+          </p>
+          <p>В каких ещё странах блокируют VPN: Китай, Беларусь, Северная Корея, Туркменистан, Уганда, Ирак, Турция, ОАЭ и Оман.</p>
+        </section>
       </footer>
     </div>
     
@@ -73,76 +91,8 @@
     
     
       
-    </body>
 
 
-  <body>
-    <main>
-
-      <section id="notification">
-        {% if check %}
-          <div class="alert alert-success mt-1 mb-0 mx-3" role="alert">
-            Ваш текущий IP: {{ ip_addr }}, VPN успешно подключен. Вы можете пользоваться <a href="#blocked" class="alert-link">заблокированными ресурсами</a>.
-          </div>
-        {% else %}
-          <div class="alert alert-warning mt-1 mb-0 mx-3" px-4 py-5 role="alert">
-            В настоящий момент вы не подключены к sssvpn. Воспользуйтесь инструкцией ниже и <a href="{{ url }}" class="alert-link">перезагрузите страницу</a> для повторной проверки.
-          </div>
-        {% endif %}
-      </section>
-      
-      <section id="logo">
-        <a href="{{ settings.url }}"><img src={% static "mainpage/images/logo48x48.png" %} alt="logo" loading="lazy" /></a>
-      </section>
-
-
-
-
-      <section id="main">
-        <p>Чтобы безопасно подключаться к интернету, используйте этот ShadowSocks Server - анонимный VPN без ограничения скорости и объема трафика. Он основан на технологиях Shadowsocks и Outline VPN и физически находится в Германии. Чтобы начать использовать - выполните следующие шаги:</p>.
-
-        <p>1. Скачайте и установите на устройство приложение Outline:</p>
-        <p>
-        {% for cl in clients %}
-          {% if cl.active %}
-            <a class="btn btn-outline-secondary btn-lg" href="{{ cl.url }}"><img style="padding: 3px;" src= {{ cl.logo.url }} width=32 height=32/> {{ cl.name }} </a>
-          {% endif %}
-        {% endfor %}
-        </p>
-        <p>2. Найдите ниже ключ доступа, который начинается с ss://, а затем скопируйте его.</p>
-        <p>3. Откройте приложение Outline. Если ваш ключ доступа определился автоматически, нажмите "Подключиться". Если этого не произошло, вставьте ключ в поле и нажмите "Подключиться".</p> 
-        
-        <p>Теперь у вас есть доступ к свободному интернету. Чтобы убедиться, что вы подключились к серверу, попробуйте открыть сайты из списка заблокированных.</p>
-        
-        <p>Дополнительную помощь можно получить в нашем телеграм-канале {{ settings.url_support }}.</p>
-      </section>
-      
-
-
-      
-      <section id="block">
-        <h3>Заблокированные ресурсы</h3>
-        <p>используйте для проверки работы VPN</p>
-          <ul>
-            {% for bs in blocked_sites %}
-              {% if bs.active %}
-              <li>
-                <a href="{{ bs.url }}"> <p><img src={{ bs.favicon.url }} />{{bs.name}}</p></a>
-                <p>{{bs.description}}</p>
-              </li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-      </section>
-
-
-      <section id="article">
-        <p>
-          &#171;... В первом полугодии по требованию Роскомнадзора в России <b>заблокировано или удалено более 885 тысяч сайтов</b> с запрещенной законодательством информацией, что на 85% больше, чем за аналогичный период 2022 года, рассказали “Коммерсант” в ведомстве. Также выросло количество заблокированных или удаленных отдельных материалов в сети — до 1,1 млн, что на 10% больше, чем за весь 2022 год ...&#187;
-          <a href="https://www.kommersant.ru/doc/6199119" >Источник -></a>
-        </p>
-        <p>В каких ещё странах блокируют VPN: Китай, Беларусь, Северная Корея, Туркменистан, Уганда, Ирак, Турция, ОАЭ и Оман.</p>
-      </section>
 
       <section id="support">
         <div>
