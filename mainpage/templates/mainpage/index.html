@@ -113,13 +113,14 @@
           <div class="col-md-6">
             <h2>Инструкция</h2>
             <p>1. Скачайте и установите на устройство приложение Outline:</p>
-            <ul class="icon-list">
+            <ul class="list-group list-group-numbered">
               {% for cl in clients %}
               {% if cl.active %}
-                <li><img style="padding: 3px;" src= {{ cl.logo.url }} width=16 height=16/><a href="{{ cl.url }}">{{ cl.name }} </a></li>
+                <li><img style="" src= {{ cl.logo.url }} width=16 height=16/><a class="text-decoration-none " href="{{ cl.url }}"> {{ cl.name }} </a></li>
                {% endif %}
             {% endfor %}
             </ul>
+            <p></p>
             <p>2. Найдите выше ключ доступа, который начинается с ss://, а затем скопируйте его.</p>
             <p>3. Откройте приложение Outline. Если ваш ключ доступа определился автоматически, нажмите "Подключиться". Если этого не произошло, вставьте ключ в поле и нажмите "Подключиться".</p>
             <p>4. В случае проблем пишите в Телеграм.</p>
@@ -136,7 +137,7 @@
               {% for bs in blocked_sites %}
                 {% if bs.active %}
                 <li>
-                  <p><a href="{{ bs.url }}"> <img src={{ bs.favicon.url }} /> {{bs.name}}</a>
+                  <p><a class="text-decoration-none" href="{{ bs.url }}"> <img src={{ bs.favicon.url }} /> {{bs.name}}</a>
                   {{bs.description}}</p>
                 </li>
                 {% endif %}
