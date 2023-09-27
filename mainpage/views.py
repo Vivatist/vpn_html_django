@@ -24,6 +24,6 @@ def index(request):
     print("IP:", ip_addr, " Check:", check)
 
     context["check_ip"] = check
-    print(context)
+ 
 
     return render(request, "mainpage/index.html", context=context)
