@@ -5,8 +5,19 @@
 python manage.py makemigrations
 python manage.py migrate
 
+ПЕРЕНОС STATIC
+~/sssvpn/manage.py collectstatic
+
 ВИРТУАЛЬНОЕ ОКРУЖЕНИЕ
 source venv/Scripts/activate
 
 СОХРАНИТЬ СПИСОК БИБЛИОТЕК
 pip freeze > requirements.txt
+
+RESTART GUNICORN
+sudo systemctl daemon-reload
+sudo systemctl restart gunicorn.socket gunicorn.service
+
+RESTART NGINX
+sudo nginx -t && sudo systemctl restart nginx
+
