@@ -23,4 +23,6 @@ def index(request):
     check = ip_addr == context["settings"].host
     print("IP:", ip_addr, " Check:", check)
 
+    context["check_ip"] = check
+
     return render(request, "mainpage/index.html", context=context)

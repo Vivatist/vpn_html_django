@@ -34,9 +34,21 @@
         </a>
       </header>
     
+
+      <section id="notification">
+        {% if settings.check_ip  %}
+        <div class='alert alert-success mt-1 mb-0 mx-3' role="alert">
+          Вы успешно подключены к нашему VPN и можете пользоваться <a href="#blocked_site"
+            class="alert-link">заблокированными ресурсами</a>.'
+        </div>
+        <br>
+        {% endif %}
+      </section>
+  
+
       <main>
         <h1>Анонимный VPN который не заблокируют</h1>
-        <p class="fs-5 col-md-8 py-3">Основан на технологиях Shadowsocks и Outline VPN, физически находится в Германии. Бесплатный. Без ограничений трафика. Чтобы начать - скопируйте ключ доступа:</p>
+        <p class="fs-5 col-md-8 py-3">Основан на технологиях Shadowsocks и Outline VPN, физически находится в Германии. Бесплатный. Без ограничения трафика. Чтобы начать - скопируйте ключ доступа:</p>
         
         <br>
 
@@ -130,9 +142,9 @@
 
           </div>
     
-          <div class="col-md-6">
+          <div class="col-md-6" id="blocked_sites">
             <h2>Проверка</h2>
-            <p>Попробуйте открыть заблокированные роскомнадзором ресурсы:</p>
+            <p>Попробуйте подключиться к VPN и открыть заблокированные Роскомнадзором ресурсы:</p>
             <ul class="list-group list-group-numbered">
               {% for bs in blocked_sites %}
                 {% if bs.active %}
