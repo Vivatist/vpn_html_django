@@ -26,18 +26,27 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
  <script>
-   {% comment %} AJAX - запрашивает у сервера обновленный ip клиента {% endcomment %}
+
 
    $(document).ready(function() {
      setInterval(function ()  {
+         // AJAX - запрашивает у сервера обновленный ip клиента раз в 2 секунды
          $.ajax({
              url: '/update_ip/',
              type: 'GET',
              dataType: 'json',
              success: function(data) {
                  // Обработка полученных данных
-                 $('#ip').text("IP: " + data.ip);
-                 
+                $('#ip').text("Ваш IP: " + data.ip);
+                var x = data.check_ip
+                html_warning = 'Статус подключения: <span class="badge rounded-pill bg-warning text-dark">НЕ ПОДКЛЮЧЕН</span>. Сначала подключитесь к VPN, а затем попробуйте открыть заблокированные Роскомнадзором ресурсы:'
+                html_success = ' Статус подключения: <span class="badge rounded-pill bg-success">ПОДКЛЮЧЕН</span>. Теперь вы можете открывать заблокированные Роскомнадзором ресурсы. Помните, если какой-то сайт не открывается, это еще не значит что проблема в VPN - в наше время все возможно, пробуйте открыть другие ресурсы.'
+                if (x) {
+                 $('#test').html(html_success)
+                } else {
+                  $('#test').html(html_warning)
+                }
+               
              }
          });
      }, 2000);
@@ -60,9 +69,10 @@
       <section id="notification">
         {% if check_ip  %}
         <div class='alert alert-success mt-1 mb-0 mx-3' role="alert">
-          Вы успешно подключены к нашему VPN и можете пользоваться <a href="#blocked_site"
+          Вы уже подключены к нашему VPN и можете пользоваться <a href="#blocked_site"
             class="alert-link">заблокированными ресурсами</a>
         </div>
+        <br>
         <br>
         {% endif %}
       </section>
@@ -81,7 +91,7 @@
               <div class="col-auto">
                 <div class="card shadow">
                   <div id="my_button" class="card-header text-center">
-                    <h1 id="ip" class="display-6">Ключ доступа</h1>
+                    <h1 class="display-6">Ключ доступа</h1>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -166,7 +176,7 @@
     
           <div class="col-md-6" id="blocked_site">
             <h2>Проверка</h2>
-            <p>Попробуйте подключиться к VPN и открыть заблокированные Роскомнадзором ресурсы:</p>
+            <p id="test"></p>
             <ul class="list-group list-group-numbered">
               {% for bs in blocked_sites %}
                 {% if bs.active %}
@@ -187,7 +197,7 @@
             <a href="https://www.kommersant.ru/doc/6199119" >Источник -></a>
           </p>
           <p>В каких ещё странах блокируют VPN: Китай, Беларусь, Северная Корея, Туркменистан, Уганда, Ирак, Турция, ОАЭ и Оман.</p>
-          <p>Ваш текущий IP-адрес: <b>{{ client_ip }}</b></p>
+          <p id="ip"></p>
         </section>
       </footer>
     </div>

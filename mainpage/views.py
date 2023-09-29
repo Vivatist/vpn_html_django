@@ -19,7 +19,8 @@ def update_ip(request):
 
     """Обрабатывает AJAX запросы и возвращает ip"""
     if is_ajax():
-        data = {"ip": get_ip(request)}
+        ip = get_ip(request)
+        data = {"ip": ip, "check_ip": ip == Settings.objects.get(lang="ru").host}
         return JsonResponse(data)
     else:
         # Обычный HTTP-запрос - возвращаем ошибку
