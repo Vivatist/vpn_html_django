@@ -22,8 +22,6 @@ def index(request):
     ip_addr = get_client_ip(request)
     check = ip_addr == context["settings"].host
     print("IP:", ip_addr, " Check:", check)
-    text = "Флаг России \U0001F1F7\U0001F1FA."
-    print(text)
 
     context["client_ip"] = ip_addr
     context["check_ip"] = check
