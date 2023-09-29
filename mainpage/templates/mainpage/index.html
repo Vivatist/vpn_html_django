@@ -27,22 +27,22 @@
 
  <script>
    {% comment %} AJAX - запрашивает у сервера обновленный ip клиента {% endcomment %}
+
    $(document).ready(function() {
-     console.log('Готов!');
-     $("#my_button").click(function() {
-      console.log('Click!');
+     setInterval(function ()  {
          $.ajax({
              url: '/update_ip/',
              type: 'GET',
              dataType: 'json',
              success: function(data) {
                  // Обработка полученных данных
-                 $('#ip').text("Ip сервера: " + data.ip_server + ', IP клиента: ' + data.ip_client);
+                 $('#ip').text("IP: " + data.ip);
                  
              }
          });
-     });
- });
+     }, 2000);
+    });
+
  </script>
 
   </head>

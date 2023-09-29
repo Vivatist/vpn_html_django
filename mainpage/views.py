@@ -19,7 +19,7 @@ def update_ip(request):
 
     """Обрабатывает AJAX запросы и возвращает ip"""
     if is_ajax():
-        data = {"ip_server": get_ip(request), "ip_client": "0.0.0.0"}
+        data = {"ip": get_ip(request)}
         return JsonResponse(data)
     else:
         # Обычный HTTP-запрос - возвращаем ошибку
