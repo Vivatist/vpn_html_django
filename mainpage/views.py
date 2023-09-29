@@ -18,7 +18,6 @@ def update_ip(request):
         return request.headers.get("x-requested-with") == "XMLHttpRequest"
 
     """Обрабатывает AJAX запросы и возвращает ip"""
-    print("Запрос на обновление IP от ", get_ip(request))
     if is_ajax():
         data = {"ip_server": get_ip(request), "ip_client": "0.0.0.0"}
         return JsonResponse(data)
