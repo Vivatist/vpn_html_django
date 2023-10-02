@@ -26,7 +26,7 @@ def update_ip(request):
     else:
         # Обычный HTTP-запрос - возвращаем ошибку
         print("Запрос ip")
-        return HttpResponseNotFound("Неверный формат запроса. Ожидается AJAX.")  
+        return HttpResponseNotFound("Неверный формат запроса. Ожидается AJAX.")
 
 
 # HttpResponseNotFound
