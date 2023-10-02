@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Settings, BlockedSites, Clients
 from django.http import JsonResponse, HttpResponseNotFound
+import random
 
 
 def get_ip(req):
@@ -45,5 +46,6 @@ def index(request):
 
     context["client_ip"] = ip_addr
     context["check_ip"] = check
-
+    context["number_logo_success"] = random.choice([1, 2])
+    print(context["number_logo_success"])
     return render(request, "mainpage/index.html", context=context)
