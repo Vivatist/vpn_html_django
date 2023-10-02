@@ -7,12 +7,14 @@
     <title>SSSVPN - свободный VPN</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <!-- Bootstrap icons -->
     <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/helpers/icon-link/">
 
     {% load static %}
 
@@ -129,6 +131,17 @@
           <p>
             &#171;... В первом полугодии по требованию Роскомнадзора в России <b>заблокировано или удалено более 885 тысяч сайтов</b> с запрещенной законодательством информацией, что на 85% больше, чем за аналогичный период 2022 года, рассказали “Коммерсант” в ведомстве. Также выросло количество заблокированных или удаленных отдельных материалов в сети — до 1,1 млн, что на 10% больше, чем за весь 2022 год ...&#187;
             <a href="https://www.kommersant.ru/doc/6199119" >Источник -></a>
+
+            <a class="icon-link icon-link-hover" href="#">
+              Icon link
+              <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
+            </a>
+
+            <a class="icon-link" href="#">
+              Icon link
+              <svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
+            </a>
+
           </p>
           <p>В каких ещё странах блокируют VPN: Китай, Беларусь, Северная Корея, Туркменистан, Уганда, Ирак, Турция, ОАЭ и Оман.</p>
           <p id="ip"></p>
@@ -147,7 +160,9 @@
 
       <!-- Копирование по клику -->
       <script src='{% static "mainpage/js/copy_to_clipboard.js" %}'></script>
-
+      
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </section>
   </body>
 </html>
